@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.scrollView.delegate = self;
+    UIImageView *image1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    UIImageView *image2 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(image1.frame), 0, self.view.frame.size.width, self.view.frame.size.height)];
+    UIImageView *image3 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(image2.frame), 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.contentSize = CGSizeMake(CGRectGetMaxX(image3.frame), self.view.frame.size.height);
+    
+    
 }
 
 
