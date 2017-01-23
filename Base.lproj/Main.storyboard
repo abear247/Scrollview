@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xNq-8b-xMJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -41,6 +41,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--Image Detail View Controller-->
+        <scene sceneID="qCJ-xv-RXp">
+            <objects>
+                <viewController id="xNq-8b-xMJ" customClass="ImageDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I1g-VL-zgf"/>
+                        <viewControllerLayoutGuide type="bottom" id="GEY-Mh-los"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PvV-Ga-0n3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.25" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="wqu-nD-Akh">
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                            </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-UF-Na9">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dhm-UF-Na9" firstAttribute="centerY" secondItem="wqu-nD-Akh" secondAttribute="centerY" id="0PS-J7-a6b"/>
+                            <constraint firstItem="wqu-nD-Akh" firstAttribute="centerY" secondItem="PvV-Ga-0n3" secondAttribute="centerY" id="4yd-l8-HLd"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="wqu-nD-Akh" secondAttribute="leading" id="Jdl-gO-Qhr"/>
+                            <constraint firstItem="dhm-UF-Na9" firstAttribute="centerX" secondItem="wqu-nD-Akh" secondAttribute="centerX" id="Ki9-Iq-FKk"/>
+                            <constraint firstItem="wqu-nD-Akh" firstAttribute="top" secondItem="I1g-VL-zgf" secondAttribute="bottom" id="dTU-Qe-Xdy"/>
+                            <constraint firstItem="wqu-nD-Akh" firstAttribute="leading" secondItem="dhm-UF-Na9" secondAttribute="trailing" constant="-291" id="h0c-BX-A3c"/>
+                            <constraint firstItem="wqu-nD-Akh" firstAttribute="top" secondItem="dhm-UF-Na9" secondAttribute="bottom" constant="-377" id="hy6-Pr-98n"/>
+                            <constraint firstItem="wqu-nD-Akh" firstAttribute="centerX" secondItem="PvV-Ga-0n3" secondAttribute="centerX" id="k2y-Wk-ubA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageScrollview" destination="wqu-nD-Akh" id="D3H-Ar-rGC"/>
+                        <outlet property="imageView" destination="dhm-UF-Na9" id="lV3-DW-6cF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wyV-fh-y0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-732" y="198.35082458770617"/>
         </scene>
     </scenes>
 </document>
