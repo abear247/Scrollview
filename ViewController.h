@@ -12,6 +12,9 @@
 @interface ViewController : UIViewController <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (nonatomic) CGSize contentSize;
+@property CGFloat imageXPos;
+@property NSArray *images;
+
 
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xNq-8b-xMJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,24 +23,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFO-e5-byK">
-                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qFO-e5-byK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ntf-d2-QWV"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="qFO-e5-byK" secondAttribute="leading" id="UC5-nZ-KMY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="qFO-e5-byK" secondAttribute="leading" constant="16" id="UC5-nZ-KMY"/>
                             <constraint firstItem="qFO-e5-byK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kRS-x7-DSc"/>
-                            <constraint firstItem="qFO-e5-byK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="od9-9H-A4G"/>
+                            <constraint firstItem="qFO-e5-byK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="od9-9H-A4G"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="qFO-e5-byK" id="zOZ-55-M1J"/>
+                        <segue destination="xNq-8b-xMJ" kind="show" identifier="DetailSegue" id="KQS-c0-3XZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+            <point key="canvasLocation" x="-879.20000000000005" y="133.5832083958021"/>
         </scene>
         <!--Image Detail View Controller-->
         <scene sceneID="qCJ-xv-RXp">
@@ -57,19 +58,19 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.25" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="wqu-nD-Akh">
                                 <rect key="frame" x="16" y="20" width="343" height="627"/>
                             </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-UF-Na9">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dhm-UF-Na9">
+                                <rect key="frame" x="16" y="28" width="343" height="619"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dhm-UF-Na9" firstAttribute="centerY" secondItem="wqu-nD-Akh" secondAttribute="centerY" id="0PS-J7-a6b"/>
+                            <constraint firstItem="dhm-UF-Na9" firstAttribute="centerY" secondItem="wqu-nD-Akh" secondAttribute="centerY" constant="4" id="0PS-J7-a6b"/>
                             <constraint firstItem="wqu-nD-Akh" firstAttribute="centerY" secondItem="PvV-Ga-0n3" secondAttribute="centerY" id="4yd-l8-HLd"/>
                             <constraint firstAttribute="leadingMargin" secondItem="wqu-nD-Akh" secondAttribute="leading" id="Jdl-gO-Qhr"/>
                             <constraint firstItem="dhm-UF-Na9" firstAttribute="centerX" secondItem="wqu-nD-Akh" secondAttribute="centerX" id="Ki9-Iq-FKk"/>
                             <constraint firstItem="wqu-nD-Akh" firstAttribute="top" secondItem="I1g-VL-zgf" secondAttribute="bottom" id="dTU-Qe-Xdy"/>
-                            <constraint firstItem="wqu-nD-Akh" firstAttribute="leading" secondItem="dhm-UF-Na9" secondAttribute="trailing" constant="-291" id="h0c-BX-A3c"/>
-                            <constraint firstItem="wqu-nD-Akh" firstAttribute="top" secondItem="dhm-UF-Na9" secondAttribute="bottom" constant="-377" id="hy6-Pr-98n"/>
+                            <constraint firstItem="wqu-nD-Akh" firstAttribute="leading" secondItem="dhm-UF-Na9" secondAttribute="trailing" constant="-343" id="h0c-BX-A3c"/>
+                            <constraint firstItem="wqu-nD-Akh" firstAttribute="top" secondItem="dhm-UF-Na9" secondAttribute="bottom" constant="-627" id="hy6-Pr-98n"/>
                             <constraint firstItem="wqu-nD-Akh" firstAttribute="centerX" secondItem="PvV-Ga-0n3" secondAttribute="centerX" id="k2y-Wk-ubA"/>
                         </constraints>
                     </view>
@@ -80,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyV-fh-y0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-732" y="198.35082458770617"/>
+            <point key="canvasLocation" x="176.80000000000001" y="134.48275862068968"/>
         </scene>
     </scenes>
 </document>

@@ -19,6 +19,9 @@
     // Do any additional setup after loading the view.
     self.imageScrollview.delegate = self;
     [self viewForZoomingInScrollView:self.imageScrollview];
+    self.imageView.image = [UIImage imageNamed:@"Lighthouse-night"];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:self.imageView];
 }
 
 - (void)didReceiveMemoryWarning {
