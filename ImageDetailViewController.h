@@ -11,5 +11,7 @@
 @interface ImageDetailViewController : UIViewController <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollview;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (nonatomic) UIImage *image;
+-(void)setViewImage:(NSString *)imageName;
 
 @end

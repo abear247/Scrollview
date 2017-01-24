@@ -19,19 +19,19 @@
     // Do any additional setup after loading the view.
     self.imageScrollview.delegate = self;
     [self viewForZoomingInScrollView:self.imageScrollview];
-    self.imageView.image = [UIImage imageNamed:@"Lighthouse-night"];
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.view addSubview:self.imageView];
+    [self.imageView setImage:self.image];
+    self.imageView.frame = CGRectMake(0, 0, self.imageScrollview.bounds.size.width, self.imageScrollview.bounds.size.height);
+    self.imageScrollview.contentMode = UIViewContentModeScaleAspectFit;
+ 
+    [self.imageScrollview addSubview:self.imageView];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 -(UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return self.imageView;
+}
+
+-(void)setViewImage:(NSString *)imageName{
+    self.image = [UIImage imageNamed:imageName];
 }
 
 /*

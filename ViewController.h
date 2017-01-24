@@ -14,6 +14,9 @@
 @property (nonatomic) CGSize contentSize;
 @property CGFloat imageXPos;
 @property NSArray *images;
+@property NSString *currentImageName;
+@property UIPageControl *pageControl;
+@property NSInteger *currentPage;
 
 
 

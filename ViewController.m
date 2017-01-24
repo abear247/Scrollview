@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ImageDetailViewController.h"
 
 @interface ViewController ()
 
@@ -19,10 +20,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
-  
-//    UIImageView *image1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-//    UIImageView *image2 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(image1.frame), 0, self.view.frame.size.width, self.view.frame.size.height)];
-//    UIImageView *image3 = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(image2.frame), 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     
     UIImageView *imageView1 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Lighthouse"]];
@@ -31,23 +28,66 @@
     
     self.images = @[imageView1,imageView2,imageView3];
     self.imageXPos = 0;
- 
+    
     self.scrollView.contentMode = UIViewContentModeScaleAspectFit;
     for (UIImageView *imageView in self.images){
-        imageView.frame = CGRectMake(self.imageXPos, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-        self.imageXPos += self.view.bounds.size.width;
+        imageView.clipsToBounds = YES;
+        imageView.frame = CGRectMake(self.imageXPos, 0, self.view.frame.size.width, self.scrollView.frame.size.height);
+        self.imageXPos += self.view.frame.size.width;
         [self.scrollView addSubview:imageView];
     }
-    self.scrollView.contentSize = CGSizeMake(self.imageXPos, self.view.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width*self.images.count, self.scrollView.frame.size.height);
+    
+    self.pageControl = [[UIPageControl alloc] initWithFrame:self.scrollView.frame];
+    self.pageControl.numberOfPages = self.images.count;
+    [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapper:)];
     
+    [self.view addGestureRecognizer:tap];
+    
     
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqual: @"DetailSegue"]){
+        [segue.destinationViewController setViewImage:self.currentImageName];
+    }
+}
 
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    CGFloat width = self.view.frame.size.width;
+//    NSInteger page = (selfs.scrollView.contentOffset.x + (0.5f * width)) / width;
+// //   self.pageControl.currentPage = self.currentPage;
+//}
+
+-(void)changePage:(id)sender{
+    CGFloat x = self.pageControl.currentPage * self.scrollView.frame.size.width;
+    [self.scrollView setContentOffset:CGPointMake(x,0) animated:YES];
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    NSInteger pageNumber = roundf(self.scrollView.contentOffset.x / (self.scrollView.frame.size.width));
+    self.pageControl.currentPage = pageNumber;
+}
 
 -(void)tapper:(UITapGestureRecognizer *)sender{
-    
+    CGFloat width = self.view.frame.size.width;
+    NSInteger page = (self.scrollView.contentOffset.x + (0.5f * width)) / width;
+    switch (page) {
+        case 0:
+            self.currentImageName = @"Lighthouse";
+            break;
+        case 1:
+            self.currentImageName = @"Lighthouse-in-Field";
+            break;
+        case 2:
+            self.currentImageName = @"Lighthouse-night";
+            break;
+            
+        default:
+            self.currentImageName = @"Lighthouse";
+    }
+
     [self performSegueWithIdentifier:@"DetailSegue" sender:sender];
 }
 
