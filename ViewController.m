@@ -37,13 +37,13 @@
         [self.scrollView addSubview:imageView];
     }
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width*self.images.count, self.scrollView.frame.size.height);
-    
-    self.pageControl = [[UIPageControl alloc] initWithFrame:self.scrollView.frame];
     self.pageControl.numberOfPages = self.images.count;
+    self.pageControl.currentPage = 0;
     [self.pageControl addTarget:self action:@selector(changePage:) forControlEvents:UIControlEventValueChanged];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapper:)];
-    
+    [self.pageControl setNeedsLayout];
+    [self.view addSubview:self.pageControl];
     [self.view addGestureRecognizer:tap];
     
     
@@ -61,7 +61,7 @@
 //}
 
 -(void)changePage:(id)sender{
-    CGFloat x = self.pageControl.currentPage * self.scrollView.frame.size.width;
+    CGFloat x = self.pageControl.currentPage * self.view.frame.size.width;
     [self.scrollView setContentOffset:CGPointMake(x,0) animated:YES];
 }
 

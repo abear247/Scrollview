@@ -15,7 +15,8 @@
 @property CGFloat imageXPos;
 @property NSArray *images;
 @property NSString *currentImageName;
-@property UIPageControl *pageControl;
+//@property UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property NSInteger *currentPage;
 
 

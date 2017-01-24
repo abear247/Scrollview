@@ -38,20 +38,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFO-e5-byK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qFO-e5-byK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-6d-eRv">
+                                        <rect key="frame" x="168" y="596" width="39" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="a1S-o6-YFv"/>
+                                            <constraint firstAttribute="width" constant="39" id="x0u-6a-dPa"/>
+                                        </constraints>
+                                        <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </pageControl>
+                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qFO-e5-byK" secondAttribute="trailing" id="24k-yY-rII"/>
+                            <constraint firstItem="dHS-6d-eRv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DJe-T1-pZA"/>
                             <constraint firstAttribute="leading" secondItem="qFO-e5-byK" secondAttribute="leading" id="UC5-nZ-KMY"/>
+                            <constraint firstItem="dHS-6d-eRv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="281" id="kcU-zk-8bY"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qFO-e5-byK" secondAttribute="bottom" id="mkU-2Q-HUw"/>
                             <constraint firstItem="qFO-e5-byK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="od9-9H-A4G"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="a49-qj-G2G"/>
                     <connections>
+                        <outlet property="pageControl" destination="dHS-6d-eRv" id="HvL-ES-CdY"/>
                         <outlet property="scrollView" destination="qFO-e5-byK" id="zOZ-55-M1J"/>
                         <segue destination="xNq-8b-xMJ" kind="show" identifier="DetailSegue" id="KQS-c0-3XZ"/>
                     </connections>
